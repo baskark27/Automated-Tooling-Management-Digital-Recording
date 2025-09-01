@@ -10,7 +10,7 @@ app = Flask(__name__)
 def send_notification(subject, message_body, email_to):
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
-    msg['From'] = 'smartbasstinkle27@gmail.com'  # Replace with your Gmail
+    msg['From'] = '@gmail.com'  # Replace with your Gmail
     msg['To'] = email_to
     text = message_body
     html = f"""
@@ -26,8 +26,8 @@ def send_notification(subject, message_body, email_to):
     msg.attach(MIMEText(html, 'html'))
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-            server.login('smartbasstinkle27@gmail.com', 'mfcv twya xeag vmml')  # Replace with 16-character app password
-            server.sendmail('smartbasstinkle27@gmail.com', email_to, msg.as_string())
+            server.login('@gmail.com', '')  # Replace with 16-character app password
+            server.sendmail('@gmail.com', email_to, msg.as_string())
     except Exception as e:
         print(f"Email failed: {e}")
 
@@ -56,7 +56,7 @@ def tools():
             message_body = "Daily Tooling Summary:\n\n" + \
                            ( "".join(f"Tool: {row[1]}, Status: {row[2]}, User: {row[3]}, Time: {row[4]}\n" for row in rows) if rows else "No tools logged today." ) + \
                            f"\nTotal tools logged today: {len(rows)}"
-            send_notification('TANSCST Tooling Update', message_body, 'baskarankesavan07@gmail.com')  # Replace with HoD email
+            send_notification('Tooling Update', message_body, '@gmail.com') # Replace with receive email
         
         elif request.method == 'PUT':
             data = request.json
@@ -89,10 +89,11 @@ def daily_report():
         message_body = "Daily Recording Summary:\n\n" + \
                        ( "".join(f"Tool: {row[1]}, Status: {row[2]}, User: {row[3]}, Time: {row[4]}\n" for row in rows) if rows else "No tools logged today." ) + \
                        f"\nTotal tools logged today: {len(rows)}"
-        send_notification('TANSCST Daily Report', message_body, 'baskarankesavan07@gmail.com')  # Replace with HoD email
+        send_notification('TANSCST Daily Report', message_body, '@gmail.com')  # Replace with receive email
         return jsonify({'status': 'success', 'summary': message_body})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
+
     app.run(debug=True, port=5001)
