@@ -1,59 +1,48 @@
-This project is a Flask-based web application designed to streamline tool management and daily recording in workshops and labs. It helps track tools in real time, automate tool status updates, and generate daily reports that are emailed automatically to the concerned authority. The system replaces manual registers and spreadsheets with a digital, error-free solution that improves accountability and efficiency.
+Automated Tooling Management and Digital Daily Recording System
+Overview
 
-Key Features:
+A Flask-based web application to digitize tool check-in/check-out and daily recording in workshops.
+Tracks tools in real time, updates their status automatically, and sends daily usage reports via email.
+
+Features
 
 Tool check-in/check-out with user details
 
-Real-time tool status updates (In/Out)
+Real-time status logging with timestamps
 
-Automatic reset for tools marked "Out" for more than 24 hours
+Auto-reset for tools left “Out” over 24 hours
 
-Daily activity report generation and email notifications
+Daily report generation and email notifications
 
-Simple and user-friendly dashboard (Bootstrap UI)
+Tech Stack
 
-Tech Stack:
+Python (Flask)
 
-Backend: Python (Flask)
+HTML, CSS (Bootstrap), JavaScript
 
-Frontend: HTML, CSS (Bootstrap), JavaScript
+SQLite
 
-Database: SQLite
+SMTP (Email)
 
-Other: SMTP (for automated email notifications)
-
-Project Structure:
-
-Automated-Tooling-Management-Digital-Recording/
-┣ templates/ -> HTML files (index.html)
-┣ app.py -> Main Flask app
-┣ tools.db -> SQLite database file
-┣ requirements.txt -> Dependencies
-┣ README.md -> Documentation
-
-Installation & Setup:
-
-Clone the repository:
-
-git clone https://github.com/yourusername/Automated-Tooling-Management-Digital-Recording.git  
-cd Automated-Tooling-Management-Digital-Recording  
+Installation & Setup
+git clone https://github.com/yourusername/Automated-Tooling-Management-Digital-Recording.git
+cd Automated-Tooling-Management-Digital-Recording
+pip install -r requirements.txt
+python app.py
 
 
-Install dependencies:
+App will run at:
 
-pip install -r requirements.txt  
+http://127.0.0.1:5001
 
-
-Run the Flask app:
-
-python app.py  
-
-
-Open in browser:
-
-http://127.0.0.1:5001  
+Project Structure
+├─ app.py          # Flask backend  
+├─ tools.db        # SQLite database  
+├─ templates/      # HTML (UI files)  
+└─ requirements.txt
 
 
-Contact:
+Contact
+
 Developed by: Baskar K
 LinkedIn: www.linkedin.com/in/baskark7
